@@ -68,6 +68,7 @@ void test_operator_indeksowania(Szpital S1) {
 
 void test_operator_inkrementacji_dekrementacji_Pacjent(Pacjent pacjent)
 {
+
 	cout << "Liczba przed zwiêkszeniem iloœci chorób: " << pacjent.PobierzIloscObjawow() << endl;
 
 	pacjent++;
