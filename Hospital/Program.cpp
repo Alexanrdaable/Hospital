@@ -9,18 +9,20 @@
 #include <iostream>
 using namespace std;
 
-//test szpital: >, =
-// test Dane: porownanie ==danych,  << wypisz dane
-//test pacjent: ++, -- , wypisz, konwersja
-//test parametry: +ilosc sal  ok.
+//test szpital: >, =, wypisz dane
+//test dane:  << wypisz dane
+//test pacjent: ++, -- , wypisz, konwersja,[]
+//test parametry: +ilosc sal  
 
 void test_operatory_Dane(Szpital S1)
 {
+	cout << endl << "Test wypisywania danych: " << endl;
 	cout << S1.PobierzDane() << endl;
 }
 
 void test_operatory_Szpital(Szpital S1, Szpital S2)
 {
+	cout << endl << "Porownuje dwa szpitale pod wzgledem wielkosci, test > : " << endl;
 	if (S1 > S2)
 	{
 		cout << "Szpital pierwszy jest wiekszy, poniewaz ma wiecej oddzialow." << endl;
@@ -36,6 +38,8 @@ void test_operatory_Szpital(Szpital S1, Szpital S2)
 
 void test_operator_porownania_Szpital(Szpital S1, Szpital S2)
 {
+	cout << endl << "Porownujemy dwa szpitale:" << endl;
+
 	if (S1 == S2)
 	{
 		cout << "Porownujesz dwa takie same szpitale." << endl;
@@ -50,10 +54,10 @@ void test_operator_porownania_Szpital(Szpital S1, Szpital S2)
 void test_operatory_Parametry(Szpital S1, Szpital S2)
 {
 	Parametry p = Parametry(10, 10, 1, 5);
-	Parametry p2 = S2.ilesal();			//z konst
+	Parametry p2 = S2.ilesal();			
 	Parametry suma = p + p2;
-
-	cout << "Liczba sal pierwszego szpitala: " << p.ilesal() << endl;
+	cout << endl << "Test operatora dodawania: " << endl;
+	cout << endl << "Liczba sal pierwszego szpitala: " << p.ilesal() << endl;
 	cout << "Liczba sal drugiego szpitala: " << p2.ilesal() << endl;
 	cout << "Po sumowaniu: " << suma.ilesal() << endl;
 	cout << endl;
@@ -63,27 +67,27 @@ void test_operatory_Parametry(Szpital S1, Szpital S2)
 void test_operator_indeksowania(Szpital S1) {
 	Pacjent pacjent = S1[0];
 
-	cout << "Przeciazony operator indeksowania:" << endl << pacjent << endl;
+	cout << endl << "Test operatora indeksowania: " << endl << pacjent << endl;
 }
 
 void test_operator_inkrementacji_dekrementacji_Pacjent(Pacjent pacjent)
 {
 
-	cout << "Liczba przed zwiêkszeniem iloœci chorób: " << pacjent.PobierzIloscObjawow() << endl;
+	cout << endl << "Liczba przed zwiekszeniem ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
 
 	pacjent++;
 
-	cout << "Liczba po zwiêkszeniu iloœci chorób: " << pacjent.PobierzIloscObjawow() << endl;
+	cout << endl << "Liczba po zwiekszeniu ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
 
-	cout << "Leczymy pacjenta: " << endl;
+	cout << endl << "Leczymy pacjenta! " << endl;
 
 	pacjent--;
 
-	cout << "Liczba po zmniejszeniu iloœci chorób: " << pacjent.PobierzIloscObjawow() << endl;
+	cout << endl <<  "Liczba po zmniejszeniu ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
 
-	cout << "Przeciazony operator konwersji obiektu na string " << endl << (string)pacjent << endl;
+	cout << endl <<  "Test operatora konwersji konwersji obiektu na string: " << endl << (string)pacjent << endl;
 
-	cout << "Przeciazony operator wypisywania " << endl << pacjent << endl;
+	cout << endl <<  "Test operatora wypisywania dla pacjenta:  " << endl << pacjent << endl;
 
 	cout << endl;
 }

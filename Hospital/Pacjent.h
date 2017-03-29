@@ -20,7 +20,7 @@ public:
 	int PobierzIloscObjawow();
 
 
-	Pacjent operator++(int);		//bede zwracac co przed i co po , slajd 34, postinkrementacja
+	Pacjent operator++(int);		
 	Pacjent operator--(int);
 	operator string() const;
 

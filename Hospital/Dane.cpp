@@ -6,7 +6,7 @@ using namespace std;
 Dane::Dane()
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Dane." << endl;
+	cout << "Konstruktor klasy Dane." << endl;
 #endif
 	typSzpitala = "Ogólny";
 	miejscowoscSzpitala = "Warszawa";
@@ -17,7 +17,7 @@ Dane::Dane()
 Dane::Dane(string typ, string miejsc, string ul, int nu) 
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Dane." << endl;
+	cout << "Konstruktor klasy Dane z parametrem." << endl;
 #endif
 
 	typSzpitala = typ;
@@ -33,19 +33,17 @@ void Dane::ZmienTyp(string nowy_typ)
 
 
 
-
-
 Dane::~Dane()
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany destruktor klasy Dane." << endl;
+	cout << "Destruktor klasy Dane." << endl;
 #endif
 }
 
 
 ostream & operator << (ostream &s, Dane &d)
 {
-	s << "Dane o szpitalu: " << endl << "Szpital " << d.typSzpitala << " w " << d.miejscowoscSzpitala << endl << " na ulicy " << d.ulica << " " << d.numerBudynku << endl;
+	s << "Dane o szpitalu: " << endl << "Szpital " << d.typSzpitala << " w miejscowosci: " << d.miejscowoscSzpitala << endl << " na ulicy: " << d.ulica << " " << d.numerBudynku << endl;
 	return s;
 }
 

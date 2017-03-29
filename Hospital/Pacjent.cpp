@@ -6,7 +6,7 @@ using namespace std;
 Pacjent::Pacjent()
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Pacjent." << endl;
+	cout << "Konstruktor klasy Pacjent." << endl;
 #endif
 	string imie = "Jan";
 	string nazwisko ="Kowalski";
@@ -17,7 +17,7 @@ Pacjent::Pacjent()
 Pacjent::Pacjent(int liczba)
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Pacjent." << endl;
+	cout << "Konstruktor klasy Pacjent." << endl;
 #endif
 	string imie = "Jan";
 	string nazwisko = "Kowalski";
@@ -33,7 +33,7 @@ Pacjent::Pacjent(string imie, string nazwisko, int numer, int liczbaObjawow)
 	this->liczbaObjawow = liczbaObjawow;
 
 #ifdef _DEBUG
-	cout << "wywolano konstruktor z parametrem klasy Pacjent" << endl;
+	cout << "Konstruktor klasy Pacjent z parametrami." << endl;
 #endif
 }
 
@@ -61,7 +61,7 @@ Pacjent Pacjent::operator--(int)
 	if (liczbaObjawow > 0)
 		liczbaObjawow--;
 	else
-		cout << "Pacjent ca³kowicie zdrowy." << endl;
+		cout << " Stan zdrowia: Pacjent ca³kowicie zdrowy." << endl;
 	return *this;
 }
 
@@ -70,10 +70,10 @@ Pacjent::operator string() const
 	string l_o;
 	if (liczbaObjawow > 0)
 	{
-		l_o = "Pacjent jest chory";
+		l_o = " Stan zdrowia: Pacjent jest chory.";
 	}
 	else
-		l_o = "Pacjent jest zdrowy";
+		l_o = " Stan zdrowia: Pacjent jest zdrowy.";
 
 	return imie + " " + nazwisko + " " + l_o;
 
@@ -83,13 +83,13 @@ Pacjent::operator string() const
 Pacjent::~Pacjent()
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany destruktor klasy Pacjent" << endl;
+	cout << "Destruktor klasy Pacjent." << endl;
 #endif
 }
 
 
 ostream & operator << (ostream &s, Pacjent &p)
 {
-	s << "Dane pacjenta: " << endl << p.imie << " " << p.nazwisko << endl << "Nr pacjenta:  " << p.nrPacjenta << endl << "Liczba objawow choroby: " << p.liczbaObjawow << endl;
+	s << endl << "Dane pacjenta: " << endl << p.imie << " " << p.nazwisko << endl << "Nr pacjenta:  " << p.nrPacjenta << endl << "Liczba objawow choroby: " << p.liczbaObjawow << endl;
 	return s;
 }

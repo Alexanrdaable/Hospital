@@ -7,7 +7,7 @@ using namespace std;
 Parametry::Parametry()
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Parametry." << endl;
+	cout << "Konstruktor klasy Parametry." << endl;
 #endif
 	szerokosc_sali = 0;
 	dlugosc_sali = 0;
@@ -18,7 +18,7 @@ Parametry::Parametry()
 Parametry::Parametry(int s, int d, int sz, int i)
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Parametry." << endl;
+	cout << "Konstruktor klasy Parametry z parametrem." << endl;
 #endif
 	szerokosc_sali = s;
 	dlugosc_sali = d;
@@ -48,7 +48,7 @@ Parametry & Parametry::operator+(const Parametry &p)
 Parametry::~Parametry()
 {
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany destruktor klasy Parametry." << endl;
+	cout << "Destruktor klasy Parametry." << endl;
 #endif
 }
 

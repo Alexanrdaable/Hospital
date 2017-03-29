@@ -20,7 +20,7 @@ public:
 	
 	Szpital();	//konst.
 	Szpital(string _nazwaSzpitala, int _liczbaPacjentow);
-	Szpital(Szpital &szpital);	//konst. kopiujacy														//Szpital(string nazwa, int lPacj, int lOddz);
+	Szpital(Szpital &szpital);	//konst. kopiujacy														
 	~Szpital();	//dest.
 	
 	Parametry ilesal();
@@ -35,11 +35,10 @@ public:
 	void DodajPacjenta(string imie, string nazwisko, int nr, int lo);
 	
 	//operatory
-	bool operator>(const Szpital &s);    //operator zwracajacy referencje, nie kopie
+	bool operator>(const Szpital &s);    
 	Szpital& operator=(const Szpital &s);
 	Pacjent& operator[](int i);
 
-	//porownujacy
 	bool operator==(const Szpital &d);
 	friend bool operator==(const Szpital &d1, const Szpital &d2);	
 

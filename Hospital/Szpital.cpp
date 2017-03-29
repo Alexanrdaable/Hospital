@@ -23,27 +23,27 @@ Szpital::Szpital()
 	liczbaSzpitali++;
 
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Szpital" << endl;
+	cout << "Konstruktor klasy Szpital." << endl;
 #endif
 
 }
 
-Szpital::Szpital(string _nazwaSzpitala, int _liczbaPacjentow)
+Szpital::Szpital(string nazwa_Szpitala, int liczba_Pacjentow)
 {
 	int liczbaPacjentow = 0;
 	pacjenci = new Pacjent[liczbaPacjentow];
 	parametry = Parametry();
 	dane = Dane();
 
-	string nazwaSzpitala = _nazwaSzpitala;
+	string nazwaSzpitala = nazwa_Szpitala;
 	int liczbaOddzialow = 1;
 
-	liczbaPacjentow = _liczbaPacjentow;
+	liczbaPacjentow = liczba_Pacjentow;
 
 	liczbaSzpitali++;
 
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor klasy Szpital z parametrami" << endl;
+	cout << "Konstruktor klasy Szpital z parametrami." << endl;
 #endif
 
 }
@@ -64,14 +64,14 @@ Szpital::Szpital(Szpital &szpital)
 	}
 
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany konstruktor kopiujacy klasy Szpital" << endl;
+	cout << "Konstruktor kopiujacy klasy Szpital." << endl;
 #endif
 
 }
 
 void Szpital::UstawNazwe(string nazwa)
 {
-	this->nazwaSzpitala = nazwa; 			//wskazuje na obiekt dla ktorego zostala wywolana metoda
+	this->nazwaSzpitala = nazwa; 			
 }
 
 
@@ -101,7 +101,7 @@ void Szpital::DodajPacjenta(string imie, string nazwisko, int nr, int lo)
 {
 	Pacjent nowyPacjent = Pacjent(imie, nazwisko, nr, lo);
 
-	Pacjent *tempPacjent = new Pacjent[liczbaPacjentow + 1];			//wskaznik, przypisac pamiec, dodac nowy, wywalic, wrzucic nowy wsk
+	Pacjent *tempPacjent = new Pacjent[liczbaPacjentow + 1];			
 
 	for (int i = 0; i < liczbaPacjentow; i++)
 		tempPacjent[i] = pacjenci[i];
@@ -131,7 +131,7 @@ Szpital& Szpital::operator=(const Szpital &s)
 	return *this;
 }
 
-bool Szpital::operator>(const Szpital &s)			//ze jest wiekszy szpital
+bool Szpital::operator>(const Szpital &s)			//czy wiekszy szpital
 {
 	if ((liczbaOddzialow > s.liczbaOddzialow) || (liczbaPacjentow > s.liczbaPacjentow))
 	{
@@ -160,32 +160,18 @@ Pacjent& Szpital::operator[](int i)
 		return pacjenci[i];
 	else
 	{
-		cout << "Znajdujesz sie poza zakresem liczby pacjentow." << endl;
+		cout << "Probujesz znalezc nieistniejacego pacjenta." << endl;
 	}	
 }
 
-//void Szpital::dodajPacjenta(const Pacjent &pacjent)			//spr
-//{
-//	Pacjent *temp;
-//
-//	temp = new Pacjent[liczbaPacjentow];
-//	for (int i = 0; i < liczbaPacjentow; i++)
-//		temp[i] = pacjenci[i];
-//
-//	temp[liczbaPacjentow] = pacjent;
-//	delete[] pacjenci;
-//	pacjenci = temp;
-//
-//	liczbaPacjentow++;
-//
-//}
+
 
 Szpital::~Szpital()
 {
 	delete[]pacjenci;
-	//liczbaSzpitali--;
+	
 #ifdef _DEBUG
-	cout << "Zosta³ wyywolany destruktor klasy Szpital" << endl;
+	cout << "Destruktor klasy Szpital." << endl;
 #endif
 }
 
