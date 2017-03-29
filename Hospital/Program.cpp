@@ -14,13 +14,13 @@ using namespace std;
 //test pacjent: ++, -- , wypisz, konwersja,[]
 //test parametry: +ilosc sal  
 
-void test_operatory_Dane(Szpital S1)
+void test_operatory_Dane(Szpital &S1)
 {
 	cout << endl << "Test wypisywania danych: " << endl;
 	cout << S1.PobierzDane() << endl;
 }
 
-void test_operatory_Szpital(Szpital S1, Szpital S2)
+void test_operatory_Szpital(Szpital &S1, Szpital &S2)
 {
 	cout << endl << "Porownuje dwa szpitale pod wzgledem wielkosci, test > : " << endl;
 	if (S1 > S2)
@@ -36,7 +36,7 @@ void test_operatory_Szpital(Szpital S1, Szpital S2)
 	}
 }
 
-void test_operator_porownania_Szpital(Szpital S1, Szpital S2)
+void test_operator_porownania_Szpital(Szpital &S1, Szpital &S2)
 {
 	cout << endl << "Porownujemy dwa szpitale:" << endl;
 
@@ -46,12 +46,12 @@ void test_operator_porownania_Szpital(Szpital S1, Szpital S2)
 	}
 	else
 	{
-		cout << "Szpital S1 jest innym szpitalem niz S2." << endl;
+		cout << "Szpital pierwszy jest innym szpitalem niz szpital drugi." << endl;
 	}
 	cout << endl;
 }
 
-void test_operatory_Parametry(Szpital S1, Szpital S2)
+void test_operatory_Parametry(Szpital &S1, Szpital &S2)
 {
 	Parametry p = Parametry(10, 10, 1, 5);
 	Parametry p2 = S2.ilesal();			
@@ -64,26 +64,26 @@ void test_operatory_Parametry(Szpital S1, Szpital S2)
 
 }
 
-void test_operator_indeksowania(Szpital S1) {
+void test_operator_indeksowania(Szpital &S1) {
 	Pacjent pacjent = S1[0];
 
 	cout << endl << "Test operatora indeksowania: " << endl << pacjent << endl;
 }
 
-void test_operator_inkrementacji_dekrementacji_Pacjent(Pacjent pacjent)
+void test_operator_inkrementacji_dekrementacji_Pacjent(Pacjent &pacjent)
 {
 
-	cout << endl << "Liczba przed zwiekszeniem ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
+	cout << endl << "Liczba objawow przed zwiekszeniem ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
 
 	pacjent++;
 
-	cout << endl << "Liczba po zwiekszeniu ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
+	cout << endl << "Liczba objawow po zwiekszeniu ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
 
 	cout << endl << "Leczymy pacjenta! " << endl;
 
 	pacjent--;
 
-	cout << endl <<  "Liczba po zmniejszeniu ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
+	cout << endl <<  "Liczba objawow po zmniejszeniu ilosci chorob: " << pacjent.PobierzIloscObjawow() << endl;
 
 	cout << endl <<  "Test operatora konwersji konwersji obiektu na string: " << endl << (string)pacjent << endl;
 
@@ -108,7 +108,7 @@ int main()
 	S2.UstawNazwe("Centralny");
 	S2.UstawLiczbeOddzialow(3);
 	S2.DodajPacjenta("Krzysztof", "Kowalski", 1, 0);
-	S2.UstawDane(Dane("Specjalistyczny", "Warszawa", "AK", 7));
+	S2.UstawDane(Dane("Specjalistyczny", "Warszawa", "Wilenska", 7));
 	S2.UstawParametry(Parametry(70, 90, 70, 55));
 
 
@@ -116,7 +116,9 @@ int main()
 	test_operatory_Szpital(S1, S2);
 	test_operator_porownania_Szpital(S1, S2);
 	test_operatory_Dane(S1);
+	test_operatory_Dane(S2);
 	test_operator_indeksowania(S1);
+	test_operator_indeksowania(S2);
 
 	Pacjent pacjent = S2.PobierzPacjenta();
 	test_operator_inkrementacji_dekrementacji_Pacjent(pacjent);
@@ -125,6 +127,7 @@ int main()
 	cout << "Liczba utworzonych szpitali: " << Szpital::wypisz_liczbaSzpitali() << endl;
 
 	int end;
+	cout << "Wpisz dowolna liczbe, aby zakonczyc: ";
 	cin >> end;
 	return 0;
 }

@@ -53,16 +53,22 @@ Pacjent Pacjent::operator++(int)
 {
 	Pacjent kopia(*this);
 	liczbaObjawow++;
+	cout << "Stan zdrowia sie pogorszyl." << endl;
 	return kopia;
 }
 
 Pacjent Pacjent::operator--(int)
 {
 	if (liczbaObjawow > 0)
+	{
+		Pacjent kopia(*this);
 		liczbaObjawow--;
+		cout << "Stan zdrowia sie poprawil." << endl;
+		return kopia;
+	}
 	else
 		cout << " Stan zdrowia: Pacjent ca³kowicie zdrowy." << endl;
-	return *this;
+	
 }
 
 Pacjent::operator string() const

@@ -24,7 +24,5 @@ public:
 	Pacjent operator--(int);
 	operator string() const;
 
-
-
 	friend ostream& operator << (ostream &s, Pacjent &p);
 };

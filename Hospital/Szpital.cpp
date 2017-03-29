@@ -80,11 +80,11 @@ void Szpital::UstawLiczbeOddzialow(int liczba_oddzialow)
 	this->liczbaOddzialow = liczba_oddzialow;
 }
 
-void Szpital::UstawParametry(Parametry p)
+void Szpital::UstawParametry(Parametry &p)
 {
 	this->parametry = p;
 }
-void Szpital::UstawDane(Dane d)
+void Szpital::UstawDane(Dane &d)
 {
 	this->dane = d;
 }
@@ -101,7 +101,7 @@ void Szpital::DodajPacjenta(string imie, string nazwisko, int nr, int lo)
 {
 	Pacjent nowyPacjent = Pacjent(imie, nazwisko, nr, lo);
 
-	Pacjent *tempPacjent = new Pacjent[liczbaPacjentow + 1];			
+	Pacjent *tempPacjent = new Pacjent[liczbaPacjentow + 1];			//z lab.
 
 	for (int i = 0; i < liczbaPacjentow; i++)
 		tempPacjent[i] = pacjenci[i];
@@ -148,9 +148,9 @@ bool Szpital::operator==(const Szpital &d)
 	{
 		return true;
 	}
-	else {
+	else 
 		return false;
-	}
+	
 }
 
 

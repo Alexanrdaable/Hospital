@@ -27,8 +27,8 @@ public:
 	static int wypisz_liczbaSzpitali();
 	void UstawNazwe(string nazwa);
 	void UstawLiczbeOddzialow(int liczba_oddzialow);
-	void UstawParametry(Parametry p);
-	void UstawDane(Dane d);
+	void UstawParametry(Parametry &p);
+	void UstawDane(Dane &d);
 	Dane PobierzDane();
 	Pacjent PobierzPacjenta();
 
@@ -40,6 +40,6 @@ public:
 	Pacjent& operator[](int i);
 
 	bool operator==(const Szpital &d);
-	friend bool operator==(const Szpital &d1, const Szpital &d2);	
+	friend bool operator==(const Szpital &d1, const Szpital &d2);
 
 };

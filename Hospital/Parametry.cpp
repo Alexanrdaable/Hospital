@@ -29,7 +29,6 @@ Parametry::Parametry(int s, int d, int sz, int i)
 int Parametry::ilesal()
 {
 	return this->iloscSal;
-
 }
 
 
